@@ -43,12 +43,33 @@
 #  print("*", end="")：end表示的是每一次输出以什么结束：默认:\n,表示换行
 #1.接受键盘输入 m，n
 #长度
-m = int(input("请输入长方形的长度："))
-#宽度
-n = int(input("请输入长方形的宽度："))
+# m = int(input("请输入长方形的长度："))
+# #宽度
+# n = int(input("请输入长方形的宽度："))
 
-# 打印长方形
-for i in range(n):#控制行
-    for i in range(m):#控制列
-       print("*", end="")
+# # 打印长方形
+# for i in range(n):#控制行
+#     for i in range(m):#控制列
+#        print("*", end="")
+#     print()
+
+# # 嵌套循环案例：打印99乘法表
+# for i in range(1,10): #外层循环 - 控制行
+#     for j in range(1,i+1):
+#         print(f"{j}×{i}={j*i}",end="\t ")
+#     print()
+
+# # 根据输入的直角边的变长，打印等腰直角三角形
+# n=int(input("请输入直角边边长："))
+#
+# for i in range(1,n+1):
+#     for j in range(1,i+1):
+#         print("*",end="\t")
+#     print()
+
+# 根据输入的数字打印对应的数字金字塔
+n=int(input("请输入数字："))
+for i in range(1,n+1):
+    for j in range(1,i+1):
+        print(j,end="\t ")
     print()
