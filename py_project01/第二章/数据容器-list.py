@@ -84,18 +84,75 @@
 # 案例1：将用户输入的10个数字，存储到一个列表中，
 # 并将列表中的数字进行排序，输出其中的最小值、最大值 和 平均值。
 # 1.定义列表
-num_list=[]
-# 2.将用户输入的十个数字存入列表
-for i in range(10):
-    num=int(input("请输入一个有效的数字："))
-    num_list.append(num)
+# num_list=[]
+# # 2.将用户输入的十个数字存入列表
+# for i in range(10):
+#     num=int(input("请输入一个有效的数字："))
+#     num_list.append(num)
+#
+# print("数字列表",num_list)
+# # 3.排序
+# num_list.sort()
+# print("排序后的数字列表：",num_list)
+#
+# # 4.输出其中的最小值，最大值和平均值   ----->sum() 求和；-------->len() 获取元素的个数(列表的长度)
+# print("最小值：", num_list[0])
+# print("最大值：", num_list[-1])
+# print("平均值：", sum(num_list)/len(num_list))
 
-print("数字列表",num_list)
-# 3.排序
-num_list.sort()
-print("排序后的数字列表：",num_list)
+# 案例2：合并两个列表中的元素，并对合并的结果进行去重处理（去除列表中的重复元素）
+# num_list1 = [1,2,3,4,5,6,7,8,9]
+# num_list2 = [12,2,32,4,53,61,7,82,39]
+#
+# # 1.合并列表
+# for num in num_list2:
+#     num_list1.append(num)
+#
+# print("合并后的原始列表：",num_list1)
+#
+# # 2.去重复记录
+# new_list = [] #去重复记录后的列表
+# for num in num_list1:
+# #判断new_list中是否存在num元素，如果不存在，再添加
+#     if num not in new_list:
+#         new_list.append(num)
+# print("去除重复记录后的列表",new_list)
 
-# 4.输出其中的最小值，最大值和平均值   ----->sum() 求和；-------->len() 获取元素的个数(列表的长度)
-print("最小值：", num_list[0])
-print("最大值：", num_list[-1])
-print("平均值：", sum(num_list)/len(num_list))
+
+# # 简化：
+# num_list1 = [1,2,3,4,5,6,7,8,9]
+# num_list2 = [12,2,32,4,53,61,7,82,39]
+#
+# # 1.合并列表
+# # 解包：将列表这一类容器解开成一个一个独立的元素*
+# # 组包：将多个值合并到一个容器
+# num_list = [*num_list1,*num_list2]
+#
+# print("合并后的原始列表：",num_list)
+#
+# # 2.去重复记录
+# new_list = [] #去重复记录后的列表
+# for num in num_list:
+# #判断new_list中是否存在num元素，如果不存在，再添加
+#     if num not in new_list:
+#         new_list.append(num)
+# print("去除重复记录后的列表",new_list)
+
+# 简化2：
+num_list1 = [1,2,3,4,5,6,7,8,9]
+num_list2 = [12,2,32,4,53,61,7,82,39]
+
+# 1.合并列表
+# 解包：将列表这一类容器解开成一个一个独立的元素*
+num_list = num_list1 + num_list2
+
+print("合并后的原始列表：",num_list)
+
+# 2.去重复记录
+new_list = [] #去重复记录后的列表
+for num in num_list:
+#判断new_list中是否存在num元素，如果不存在，再添加
+    if num not in new_list:
+        new_list.append(num)
+print("去除重复记录后的列表",new_list)
+
