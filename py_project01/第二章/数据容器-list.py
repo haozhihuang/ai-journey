@@ -135,24 +135,68 @@
 # for num in num_list:
 # #判断new_list中是否存在num元素，如果不存在，再添加
 #     if num not in new_list:
+# #         new_list.append(num)
+# # print("去除重复记录后的列表",new_list)
+#
+# # 简化2：
+# num_list1 = [1,2,3,4,5,6,7,8,9]
+# num_list2 = [12,2,32,4,53,61,7,82,39]
+#
+# # 1.合并列表
+# # 解包：将列表这一类容器解开成一个一个独立的元素*
+# num_list = num_list1 + num_list2
+#
+# print("合并后的原始列表：",num_list)
+#
+# # 2.去重复记录
+# new_list = [] #去重复记录后的列表
+# for num in num_list:
+# #判断new_list中是否存在num元素，如果不存在，再添加
+#     if num not in new_list:
 #         new_list.append(num)
 # print("去除重复记录后的列表",new_list)
 
-# 简化2：
-num_list1 = [1,2,3,4,5,6,7,8,9]
-num_list2 = [12,2,32,4,53,61,7,82,39]
+# # 案例3：生成1-20的平方列表。  --> range(1,21)
+# # 方式一：传统方式
+# num_list = []
+# for i in range(1,21):
+#   num_list.append(i**2)
+# print(num_list)
+#
+# # 方式二：列表推导式 --> 就是按照一定的规则快速生成一个列表的方法 --> 语法格式：[要输入的值 for i in 序列/列表]
+# num_list2 = [i**2 for i in range(1,21)]
+# print(num_list2)
 
-# 1.合并列表
-# 解包：将列表这一类容器解开成一个一个独立的元素*
-num_list = num_list1 + num_list2
+# 案例4：从一个数字列表中提取所有偶数，并计算其平方，组成一个新的列表。 --》判断偶数： num ￥ 2 ==0
+# 列表推导式 --> 就是按照一定的规则快速生成一个列表的方法 --> 语法格式2：[要输入的值 for i in 序列/列表 if 条件]
+# num_list = [1,2,3,4,5,65,77,84,93,102]
+# # new_list = [i**2 for i in num_list if i%2==0]
+# # print(new_list)
 
-print("合并后的原始列表：",num_list)
+# # 将如下多个列表合并为一个列表，并去重重复元素，排好序（升序）后输出到控制台。
+# list1=["M","A","B","C","D","E","F","G","H","I","J","K","L","M",]
+# list2=["X","Z","N","P","O","Q"]
+# list3=["W","Y","Z","X"]
+# # 合并为一个列表
+# listall=list1+list2+list3
+# print(listall)
+#
+# newlist=[]
+# for i in listall:
+#     if i not in newlist:
+#         newlist.append(i)
+# newlist.sort()
+# print(newlist)
 
-# 2.去重复记录
-new_list = [] #去重复记录后的列表
-for num in num_list:
-#判断new_list中是否存在num元素，如果不存在，再添加
-    if num not in new_list:
-        new_list.append(num)
-print("去除重复记录后的列表",new_list)
+# 将如下列表中能被3或5整除的元素提出来，并获取这些数字对应的平方，组成一个新的列表。
+# list1=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+# new_list=[i**2 for i in list1 if i % 3 == 0 or i % 5 == 0]
+# print(new_list)
+
+# # 将如下列表中的正数提取出来，封装为一个新的列表
+# list1=[11,2,31,4,-5,15,17,28,49,10,-11,16,54,-14,36,-16,87,-39]
+# new_list=[i for i in list1 if i>0]
+# print(new_list)
+
+
 
