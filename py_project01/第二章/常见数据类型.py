@@ -56,25 +56,25 @@
 # m1 ="人生苦短"
 # m2 ="我用Python"
 # print("我说："+m1+","+m2)
+# #
+# # #案例：-->str(int数字)-->将int类型的数字转为字符串
+# # name = "涛哥"
+# # age = 18
+# # pro = "软件工程"
+# # hobby = "Python、Java"
+# # print("大家好,我是"+name+",今年"+str(age)+"岁,学习的专业是"+pro+",爱好"+hobby)
 #
-# #案例：-->str(int数字)-->将int类型的数字转为字符串
+#
+# #字符串格式化-->%s 占位符
 # name = "涛哥"
 # age = 18
 # pro = "软件工程"
 # hobby = "Python、Java"
-# print("大家好,我是"+name+",今年"+str(age)+"岁,学习的专业是"+pro+",爱好"+hobby)
-
-
-#字符串格式化-->%s 占位符
-name = "涛哥"
-age = 18
-pro = "软件工程"
-hobby = "Python、Java"
-print("大家好,我是%s,今年%s岁,学习的专业是%s,爱好%s" %(name,age,pro,hobby))
-
-#字符串格式化 --> 方法二： f"内容{变量名/表达式}内容"  ------->推荐方式
-name = "涛哥"
-age = 18
-pro = "软件工程"
-hobby = "Python、Java"
-print(f"大家好,我是{name},今年{age}岁,学习的专业是{pro},爱好{hobby}")
+# print("大家好,我是%s,今年%s岁,学习的专业是%s,爱好%s" %(name,age,pro,hobby))
+#
+# #字符串格式化 --> 方法二： f"内容{变量名/表达式}内容"  ------->推荐方式
+# name = "涛哥"
+# age = 18
+# pro = "软件工程"
+# hobby = "Python、Java"
+# print(f"大家好,我是{name},今年{age}岁,学习的专业是{pro},爱好{hobby}")
