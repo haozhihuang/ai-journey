@@ -1,3 +1,27 @@
-.venv/
-.idea/
+﻿# Python缓存
 __pycache__/
+*.pyc
+*.pyo
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# 大文件和非代码资源
+*.mp3
+*.mp4
+*.wav
+*.xlsx
+*.xls
+*.zip
+*.rar
+
+# 其他无关项目文件夹
+2521010121/
+PythonProject/
+first_call.py
+
+# IDE配置
+.idea/
+.vscode/
