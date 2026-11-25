@@ -5,6 +5,8 @@ from openai.resources.skills import content
 from datetime import datetime
 import json
 
+from openai.types.beta.agents.environments import file_list_params
+
 print("-------------> 重新执行此文件，渲染展示页面")
 
 # 设置页面的配置项
@@ -19,6 +21,11 @@ st.set_page_config(
     # 菜单信息
     menu_items={}
 )
+
+# 生成会话标识的函数
+def generate_session_name():
+    return datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
 
 # 保存会话信息函数
 def save_session():
@@ -36,6 +43,19 @@ def save_session():
         # 保存会话信息到文件
         with open(f"sessions/{st.session_state.current_session}.json", "w", encoding="utf-8") as f:
             json.dump(session_data, f, ensure_ascii=False, indent=2)
+
+# 加载所有的会话列表信息
+def load_sessions():
+    session_list= []
+    # 加载sessions目录下的文件
+    if os.path.exists("sessions"):
+        file_list=os.listdir("sessions")
+        for filename in file_list:
+            if filename.endswith(".json"):
+                session_list.append(filename[:-5])
+    return session_list
+
+
 # 大标题
 st.title("AI智能伴侣")
 
@@ -70,7 +90,7 @@ if 'nature' not in st.session_state:
     st.session_state.nature = "活泼开朗的东北姑娘"
 # 会话标识
 if "current_session" not in st.session_state:
-    st.session_state.current_session = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    st.session_state.current_session = generate_session_name()
 
 
 # 展示聊天信息
@@ -100,6 +120,27 @@ with st.sidebar:
         save_session()
         
         # 2.创建新的会话
+        if st.session_state.messages: #如果聊天消息非空，True，否则 false
+            st.session_state.messages = []
+            st.session_state.current_session = generate_session_name()
+            save_session()
+            st.rerun() # 重新运行当前页面
+
+    #会话历史
+    st.text("会话历史")
+    sessions_list = load_sessions()
+    for session in sessions_list:
+        col1,col2 = st.columns([4,1])
+        with col1:
+            if st.button(session, width="stretch", icon="🗂️", key=f"load_{session}"):
+                pass
+        with col2:
+            if st.button("", width="stretch", icon="❌", key=f"delete_{session}"):
+                pass
+
+        # st.button(session, width="stretch", icon="🗂️")
+        # st.button("删除", width="stretch", icon="🗂")
+
 
     # 伴侣信息
     st.subheader("伴侣信息")
