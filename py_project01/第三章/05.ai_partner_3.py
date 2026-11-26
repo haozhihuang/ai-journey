@@ -56,6 +56,8 @@ def load_sessions():
     return session_list
 
 
+
+
 # 大标题
 st.title("AI智能伴侣")
 
@@ -94,6 +96,7 @@ if "current_session" not in st.session_state:
 
 
 # 展示聊天信息
+st.text(f"会话名称：{st.session_state.current_session}")
 for message in st.session_state.messages: #{ "role": "user", "content": "prompt" }
     st.chat_message(message["role"]).write(message["content"])
     # if message["role"] == "user":
@@ -132,14 +135,16 @@ with st.sidebar:
     for session in sessions_list:
         col1,col2 = st.columns([4,1])
         with col1:
-            if st.button(session, width="stretch", icon="🗂️", key=f"load_{session}"):
+            # 加载会话信息
+            # 三元运算符:如果条件为真，则返回第一个表达式的值，否则返回第二个表达式的值 --> 语法： 值1 if 条件 else 值2
+            if st.button(session, width="stretch", icon="🗂️", key=f"load_{session}", type="primary" if session == st.session_state.current_session else "secondary"):
                 pass
         with col2:
             if st.button("", width="stretch", icon="❌", key=f"delete_{session}"):
                 pass
 
         # st.button(session, width="stretch", icon="🗂️")
-        # st.button("删除", width="stretch", icon="🗂")
+        # st.button("删除", width="stretch", icon="❌")
 
 
     # 伴侣信息
